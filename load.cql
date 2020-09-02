@@ -53,3 +53,44 @@ CREATE (complaint)-[:ABOUT]->(product)
 CREATE (complaint)-[:WITH]->(issue)
 ;
 
+// Sub issues, sub products.
+
+	// Uniqueness constraints.
+CREATE CONSTRAINT ON (s:SubProduct) ASSERT s.name IS UNIQUE;
+CREATE CONSTRAINT ON (s:SubIssue) ASSERT s.name IS UNIQUE;
+
+// Load.
+
+export FILEPATH=file:///subissues.csv
+
+:auto USING PERIODIC COMMIT 1000
+LOAD CSV WITH HEADERS
+FROM {FILEPATH} AS line
+WITH line 
+WHERE line.`Sub-issue` <> '' AND
+      line.`Sub-issue` IS NOT NULL
+
+MATCH (complaint:Complaint { id: toInteger(line.`Complaint ID`) })
+MATCH (complaint)-[:WITH]->(issue:Issue)
+
+MERGE (subIssue:SubIssue { name: toUpper(line.`Sub-issue`) })
+MERGE (subIssue)-[:IN_CATEGORY]->(issue)
+CREATE (complaint)-[:WITH]->(subIssue)
+;
+
+export FILEPATH=file:///subproducts.csv
+
+:auto USING PERIODIC COMMIT 1000
+LOAD CSV WITH HEADERS
+FROM {FILEPATH} AS line
+WITH line 
+WHERE line.`Sub-product` <> '' AND
+      line.`Sub-product` IS NOT NULL
+
+MATCH (complaint:Complaint { id: toInteger(line.`Complaint ID`) })
+MATCH (complaint)-[:ABOUT]->(product:Product)
+
+MERGE (subProduct:SubProduct { name: toUpper(line.`Sub-product`) })
+MERGE (subProduct)-[:IN_CATEGORY]->(product)
+CREATE (complaint)-[:ABOUT]->(subProduct)
+;
