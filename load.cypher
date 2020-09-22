@@ -210,13 +210,13 @@ CREATE
   (RobR)-[:ACTIVIST]->(Guastatoya),
   (NoraE)-[:ACTIVIST]->(Guastatoya),
   (NoraE)-[:ASSISTED]->(Guastatoya)
-CREATE (RealS:Team {title:'Real Sociedad', founded:1996})
+CREATE (Mixco:Team {title:'Mixco', founded:1996})
 CREATE (LivT:Player {name:'Liv Tyler', born:1977})
 CREATE
-  (Icardi)-[:PARTICIPATED {roles:['Mr. White']}]->(RealS),
-  (LivT)-[:PARTICIPATED {roles:['Faye Dolan']}]->(RealS),
-  (SergioR)-[:PARTICIPATED {roles:['Tina']}]->(RealS),
-  (Icardi)-[:DIRECTED]->(RealS)
+  (Icardi)-[:PARTICIPATED {roles:['Mr. White']}]->(Mixco),
+  (LivT)-[:PARTICIPATED {roles:['Faye Dolan']}]->(Mixco),
+  (SergioR)-[:PARTICIPATED {roles:['Tina']}]->(Mixco),
+  (Icardi)-[:DIRECTED]->(Mixco)
 CREATE (TheReplacements:Team {title:'The Replacements', founded:2000})
 CREATE (Brooke:Player {name:'Brooke Langton', born:1970})
 CREATE (Gene:Player {name:'Gene Hackman', born:1930})
