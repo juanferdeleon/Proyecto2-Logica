@@ -9,10 +9,10 @@ CREATE (AndyW:Player {name:'Andy Wachowski', born:1967})
 CREATE (LanaW:Player {name:'Lana Wachowski', born:1965})
 CREATE (JoelS:Player {name:'Joel Silver', born:1952})
 CREATE
-  (Lionel)-[:PARTICIPATED {roles:['Neo']}]->(Barcelona),
-  (Carrie)-[:PARTICIPATED {roles:['Trinity']}]->(Barcelona),
-  (Laurence)-[:PARTICIPATED {roles:['Morpheus']}]->(Barcelona),
-  (Hugo)-[:PARTICIPATED {roles:['Agent Smith']}]->(Barcelona),
+  (Lionel)-[:PARTICIPATED {roles:['Forward']}]->(Barcelona),
+  (Carrie)-[:PARTICIPATED {roles:['Defender']}]->(Barcelona),
+  (Laurence)-[:PARTICIPATED {roles:['Goalkeeper']}]->(Barcelona),
+  (Hugo)-[:PARTICIPATED {roles:['Midfielder']}]->(Barcelona),
   (AndyW)-[:DIRECTED]->(Barcelona),
   (LanaW)-[:DIRECTED]->(Barcelona),
   (JoelS)-[:ACTIVIST]->(Barcelona)
@@ -20,19 +20,19 @@ CREATE (Emil:Player {name:"Emil Eifrem", born:1978})
 CREATE (Emil)-[:PARTICIPATED {roles:["Emil"]}]->(Barcelona)
 CREATE (BarcelonaB:Team {title:'Barcelona B', founded:2003})
 CREATE
-  (Lionel)-[:PARTICIPATED {roles:['Neo']}]->(BarcelonaB),
-  (Carrie)-[:PARTICIPATED {roles:['Trinity']}]->(BarcelonaB),
-  (Laurence)-[:PARTICIPATED {roles:['Morpheus']}]->(BarcelonaB),
-  (Hugo)-[:PARTICIPATED {roles:['Agent Smith']}]->(BarcelonaB),
+  (Lionel)-[:PARTICIPATED {roles:['Forward']}]->(BarcelonaB),
+  (Carrie)-[:PARTICIPATED {roles:['Defender']}]->(BarcelonaB),
+  (Laurence)-[:PARTICIPATED {roles:['Goalkeeper']}]->(BarcelonaB),
+  (Hugo)-[:PARTICIPATED {roles:['Midfielder']}]->(BarcelonaB),
   (AndyW)-[:DIRECTED]->(BarcelonaB),
   (LanaW)-[:DIRECTED]->(BarcelonaB),
   (JoelS)-[:ACTIVIST]->(BarcelonaB)
 CREATE (Milan:Team {title:'Milan', founded:2003})
 CREATE
-  (Lionel)-[:PARTICIPATED {roles:['Neo']}]->(Milan),
+  (Lionel)-[:PARTICIPATED {roles:['Forward']}]->(Milan),
   (Carrie)-[:PARTICIPATED {roles:['Trinity']}]->(Milan),
-  (Laurence)-[:PARTICIPATED {roles:['Morpheus']}]->(Milan),
-  (Hugo)-[:PARTICIPATED {roles:['Agent Smith']}]->(Milan),
+  (Laurence)-[:PARTICIPATED {roles:['Defender']}]->(Milan),
+  (Hugo)-[:PARTICIPATED {roles:['Goalkeeper']}]->(Milan),
   (AndyW)-[:DIRECTED]->(Milan),
   (LanaW)-[:DIRECTED]->(Milan),
   (JoelS)-[:ACTIVIST]->(Milan)
@@ -41,9 +41,9 @@ CREATE (SergioR:Player {name:'Sergio Reguilon', born:1975})
 CREATE (Al:Player {name:'Drogba', born:1940})
 CREATE (Taylor:Player {name:'Taylor Hackford', born:1944})
 CREATE
-  (Lionel)-[:PARTICIPATED {roles:['Kevin Lomax']}]->(RealMadrid),
-  (SergioR)-[:PARTICIPATED {roles:['Mary Ann Lomax']}]->(RealMadrid),
-  (Al)-[:PARTICIPATED {roles:['John Milton']}]->(RealMadrid),
+  (Lionel)-[:PARTICIPATED {roles:['Forward']}]->(RealMadrid),
+  (SergioR)-[:PARTICIPATED {roles:['Midfielder']}]->(RealMadrid),
+  (Al)-[:PARTICIPATED {roles:['Forward']}]->(RealMadrid),
   (Taylor)-[:DIRECTED]->(RealMadrid)
 CREATE (Juventus:Team {title:"Juventus", founded:1992})
 CREATE (TomC:Player {name:'Sergio Ramos', born:1962})
@@ -60,18 +60,18 @@ CREATE (ChristopherG:Player {name:'Christopher Guest', born:1948})
 CREATE (RobR:Player {name:'Rob Reiner', born:1947})
 CREATE (AaronS:Player {name:'Aaron Sorkin', born:1961})
 CREATE
-  (TomC)-[:PARTICIPATED {roles:['Lt. Daniel Kaffee']}]->(Juventus),
-  (JackN)-[:PARTICIPATED {roles:['Col. Nathan R. Jessup']}]->(Juventus),
-  (DemiM)-[:PARTICIPATED {roles:['Lt. Cdr. JoAnne Galloway']}]->(Juventus),
-  (GarethB)-[:PARTICIPATED {roles:['Capt. Jack Ross']}]->(Juventus),
-  (KieferS)-[:PARTICIPATED {roles:['Lt. Jonathan Kendrick']}]->(Juventus),
-  (NoahW)-[:PARTICIPATED {roles:['Cpl. Jeffrey Barnes']}]->(Juventus),
-  (CubaG)-[:PARTICIPATED {roles:['Cpl. Carl Hammaker']}]->(Juventus),
-  (KevinP)-[:PARTICIPATED {roles:['Lt. Sam Weinberg']}]->(Juventus),
-  (JTW)-[:PARTICIPATED {roles:['Lt. Col. Matthew Andrew Markinson']}]->(Juventus),
-  (JamesM)-[:PARTICIPATED {roles:['Pfc. Louden Downey']}]->(Juventus),
+  (TomC)-[:PARTICIPATED {roles:['Forward']}]->(Juventus),
+  (JackN)-[:PARTICIPATED {roles:['Forward']}]->(Juventus),
+  (DemiM)-[:PARTICIPATED {roles:['Midfielder']}]->(Juventus),
+  (GarethB)-[:PARTICIPATED {roles:['Forward']}]->(Juventus),
+  (KieferS)-[:PARTICIPATED {roles:['Defender']}]->(Juventus),
+  (NoahW)-[:PARTICIPATED {roles:['Defender']}]->(Juventus),
+  (CubaG)-[:PARTICIPATED {roles:['Defender']}]->(Juventus),
+  (KevinP)-[:PARTICIPATED {roles:['Defender']}]->(Juventus),
+  (JTW)-[:PARTICIPATED {roles:['Defender']}]->(Juventus),
+  (JamesM)-[:PARTICIPATED {roles:['Defender']}]->(Juventus),
   (ChristopherG)-[:PARTICIPATED {roles:['Dr. Stone']}]->(Juventus),
-  (AaronS)-[:PARTICIPATED {roles:['Man in Bar']}]->(Juventus),
+  (AaronS)-[:PARTICIPATED {roles:['Defender']}]->(Juventus),
   (RobR)-[:DIRECTED]->(Juventus),
   (AaronS)-[:ASSISTED]->(Juventus)
 CREATE (Inter:Team {title:"Inter", founded:1986})
@@ -210,20 +210,20 @@ CREATE
   (RobR)-[:ACTIVIST]->(Guastatoya),
   (NoraE)-[:ACTIVIST]->(Guastatoya),
   (NoraE)-[:ASSISTED]->(Guastatoya)
-CREATE (ThatThingYouDo:Team {title:'That Thing You Do', founded:1996})
+CREATE (RealS:Team {title:'Real Sociedad', founded:1996})
 CREATE (LivT:Player {name:'Liv Tyler', born:1977})
 CREATE
-  (Icardi)-[:PARTICIPATED {roles:['Mr. White']}]->(ThatThingYouDo),
-  (LivT)-[:PARTICIPATED {roles:['Faye Dolan']}]->(ThatThingYouDo),
-  (SergioR)-[:PARTICIPATED {roles:['Tina']}]->(ThatThingYouDo),
-  (Icardi)-[:DIRECTED]->(ThatThingYouDo)
+  (Icardi)-[:PARTICIPATED {roles:['Mr. White']}]->(RealS),
+  (LivT)-[:PARTICIPATED {roles:['Faye Dolan']}]->(RealS),
+  (SergioR)-[:PARTICIPATED {roles:['Tina']}]->(RealS),
+  (Icardi)-[:DIRECTED]->(RealS)
 CREATE (TheReplacements:Team {title:'The Replacements', founded:2000})
 CREATE (Brooke:Player {name:'Brooke Langton', born:1970})
 CREATE (Gene:Player {name:'Gene Hackman', born:1930})
 CREATE (Orlando:Player {name:'Orlando Jones', born:1968})
 CREATE (Howard:Player {name:'Howard Deutch', born:1950})
 CREATE
-  (Lionel)-[:PARTICIPATED {roles:['Shane Falco']}]->(TheReplacements),
+  (Lionel)-[:PARTICIPATED {roles:['Forward']}]->(TheReplacements),
   (Brooke)-[:PARTICIPATED {roles:['Annabelle Farrell']}]->(TheReplacements),
   (Gene)-[:PARTICIPATED {roles:['Jimmy McGinty']}]->(TheReplacements),
   (Orlando)-[:PARTICIPATED {roles:['Clifford Franklin']}]->(TheReplacements),
@@ -425,10 +425,10 @@ CREATE
   (JuliaR)-[:PARTICIPATED {roles:['Joanne Herring']}]->(Arsenal),
   (PhilipH)-[:PARTICIPATED {roles:['Gust Avrakotos']}]->(Arsenal),
   (MikeN)-[:DIRECTED]->(Arsenal)
-CREATE (ThePolarExpress:Team {title:'The Polar Express', founded:2004})
+CREATE (CobanImperial:Team {title:'Coban Imperial', founded:2004})
 CREATE
-  (Icardi)-[:PARTICIPATED {roles:['Hero Boy', 'Father', 'Conductor', 'Hobo', 'Scrooge', 'Santa Claus']}]->(ThePolarExpress),
-  (RobertZ)-[:DIRECTED]->(ThePolarExpress)
+  (Icardi)-[:PARTICIPATED {roles:['Hero Boy', 'Father', 'Conductor', 'Hobo', 'Scrooge', 'Santa Claus']}]->(CobanImperial),
+  (RobertZ)-[:DIRECTED]->(CobanImperial)
 CREATE (ALeagueofTheirOwn:Team {title:'A League of Their Own', founded:1992})
 CREATE (Madonna:Player {name:'Madonna', born:1954})
 CREATE (GeenaD:Player {name:'Geena Davis', born:1956})
